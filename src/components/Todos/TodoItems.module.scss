@@ -1,0 +1,33 @@
+.Todo-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.todo-checkbox {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #000;
+  position: relative;
+
+  &::after {
+    content: "\2713";
+    position: absolute;
+    font-size: 3rem;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+.todo-checkbox.active {
+  &::after {
+    opacity: 1;
+  }
+}
