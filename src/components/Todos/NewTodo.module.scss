@@ -1,0 +1,42 @@
+.Newtodo {
+  width: 100%;
+  margin: auto;
+  align-self: stretch;
+  text-align: center;
+  color: #333;
+  font-size: 1.6rem;
+
+  input {
+    width: 80%;
+    margin: auto;
+    border: none;
+    background-color: transparent;
+    height: 2rem;
+    outline: none;
+    font-size: 1.5rem;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #eee;
+    margin-right: 1rem;
+    font-family: inherit;
+
+    &::placeholder {
+      color: rgb(56, 55, 55);
+      font-size: 1.4rem;
+      font-style: itali;
+    }
+  }
+
+  button {
+    background-color: #36363631;
+    // background-color: transparent;
+    padding: 0.2rem 1rem;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #ffffffa2;
+    }
+  }
+}

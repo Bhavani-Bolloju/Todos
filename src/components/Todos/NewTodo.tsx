@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useAppDispatch } from "../store/hooks";
 import { addTodo } from "../store/store";
 import { nanoid } from "@reduxjs/toolkit";
-import Calendar from "react-calendar";
+import classes from "./NewTodo.module.scss";
+
 import "./TodoCalendar.scss";
 
 const todoItem = function (
@@ -18,8 +19,7 @@ const todoItem = function (
   };
 };
 
-function NewTodo() {
-  const [date, setDate] = useState(new Date());
+const NewTodo: React.FC<{ pickDate: string }> = function (props) {
   const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -27,24 +27,19 @@ function NewTodo() {
     e.preventDefault();
     const inputValue = inputRef.current!.value;
 
-    const dateForm = date.toISOString();
-
-    dispatch(addTodo(todoItem(inputValue, dateForm)));
+    dispatch(addTodo(todoItem(inputValue, props.pickDate)));
 
     inputRef.current!.value = "";
   };
 
   return (
     <>
-      <div>
-        <Calendar onChange={setDate} value={date} />
-      </div>
-      <form onSubmit={formHandler}>
-        <input type="text" ref={inputRef} />
-        <button type="button">Add</button>
+      <form onSubmit={formHandler} className={classes.Newtodo}>
+        <input type="text" ref={inputRef} placeholder="add your task" />
+        <button type="button">+</button>
       </form>
     </>
   );
-}
+};
 
 export default NewTodo;

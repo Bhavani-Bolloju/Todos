@@ -2,6 +2,7 @@ import React from "react";
 import { useAppSelector } from "../store/hooks";
 import classes from "./TodoList.module.scss";
 import TodoItems from "./TodoItems";
+import { AnimatePresence } from "framer-motion";
 
 const TodoList: React.FC<{ onSelect: String }> = function (props) {
   const todoList = useAppSelector((state) => state.items);
@@ -15,20 +16,23 @@ const TodoList: React.FC<{ onSelect: String }> = function (props) {
   }
 
   if (todos.length === 0) {
-    return <h2>No todo's added yet</h2>;
+    return <h2>No Tasks....</h2>;
   }
 
   return (
     <ul className={classes.TodoList}>
-      {todos.map((item, i) => (
-        <TodoItems
-          key={i}
-          id={item.id}
-          item={item.text}
-          status={item.status}
-          date={item.date}
-        />
-      ))}
+      <AnimatePresence mode="sync">
+        {todos.map((item, i) => (
+          <TodoItems
+            key={i}
+            id={item.id}
+            item={item.text}
+            status={item.status}
+            date={item.date}
+            onSelect={props.onSelect}
+          />
+        ))}
+      </AnimatePresence>
     </ul>
   );
 };

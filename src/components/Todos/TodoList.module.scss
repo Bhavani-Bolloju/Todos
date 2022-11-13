@@ -1,3 +1,9 @@
 .TodoList {
   list-style: none;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

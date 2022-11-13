@@ -1,0 +1,25 @@
+.Todos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 80%;
+  margin: auto;
+
+  &_select {
+    align-self: flex-end;
+
+    select {
+      background-color: #eeeeee93;
+      padding: 0.5rem 0.2rem;
+      font-family: inherit;
+      border-radius: 0.5rem;
+      border: none;
+      color: #121212;
+      outline: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
